@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// DataCenter : **Deprecated**: This property is deprecated and will be removed after the 1 July 2026. Use the `location` property instead.  Data Center of the Primary IP.  | **Deprecated**: This property is deprecated and will be removed after the 1 July 2026. Use the `location` property instead.  Data Center this Resource is located at.
+/// DataCenter : Data Center of the Primary IP.  Data Center this Resource is located at.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DataCenter {
     /// Descriptive name for the Data Center.  Desired to be easy to understand for humans. Might be changed for cosmetic reasons. Do not use this as an identifier.
