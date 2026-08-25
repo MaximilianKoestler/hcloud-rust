@@ -20,9 +20,6 @@ pub struct Server {
     /// Point in time when the Resource was created (in [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) format).
     #[serde(rename = "created")]
     pub created: String,
-    /// **Deprecated**: This property is deprecated and will be removed after the 1 July 2026. Use the `location` property instead.  Data Center this Resource is located at.
-    #[serde(rename = "datacenter")]
-    pub datacenter: Box<models::DataCenter>,
     /// ID of the Server.
     #[serde(rename = "id")]
     pub id: i64,
@@ -90,7 +87,6 @@ impl Server {
     pub fn new(
         backup_window: Option<String>,
         created: String,
-        datacenter: models::DataCenter,
         id: i64,
         image: Option<models::Image>,
         included_traffic: Option<i64>,
@@ -112,7 +108,6 @@ impl Server {
         Server {
             backup_window,
             created,
-            datacenter: Box::new(datacenter),
             id,
             image: image.map(Box::new),
             included_traffic,

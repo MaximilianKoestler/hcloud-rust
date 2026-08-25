@@ -17,9 +17,6 @@ pub struct CreateServerRequest {
     /// Auto-mount Volumes after attach.
     #[serde(rename = "automount", skip_serializing_if = "Option::is_none")]
     pub automount: Option<bool>,
-    /// **Deprecated**: This property is deprecated and will be removed after the 1 July 2026. Use the `location` property instead.  ID or name of the Data Center to create Server in (must not be used together with `location`).
-    #[serde(rename = "datacenter", skip_serializing_if = "Option::is_none")]
-    pub datacenter: Option<String>,
     /// Firewalls which should be applied on the Server's public network interface at creation time.
     #[serde(rename = "firewalls", skip_serializing_if = "Option::is_none")]
     pub firewalls: Option<Vec<models::CreateServerRequestFirewalls>>,
@@ -29,7 +26,7 @@ pub struct CreateServerRequest {
     /// User-defined labels (`key/value` pairs) for the Resource. For more information, see \"Labels\".  | User-defined labels (`key/value` pairs) for the Resource.  Note that the set of Labels provided in the request will overwrite the existing one.  For more information, see \"Labels\".
     #[serde(rename = "labels", skip_serializing_if = "Option::is_none")]
     pub labels: Option<std::collections::HashMap<String, String>>,
-    /// ID or name of the Location to create the Server in (must not be used together with `datacenter`).
+    /// ID or name of the Location to create the Server in.
     #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
     /// Name of the Server to create (must be unique per Project and a valid hostname as per RFC 1123).
@@ -65,7 +62,6 @@ impl CreateServerRequest {
     pub fn new(image: String, name: String, server_type: String) -> CreateServerRequest {
         CreateServerRequest {
             automount: None,
-            datacenter: None,
             firewalls: None,
             image,
             labels: None,

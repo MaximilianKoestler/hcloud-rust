@@ -28,9 +28,6 @@ pub struct PrimaryIp {
     /// Point in time when the Resource was created (in [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) format).
     #[serde(rename = "created")]
     pub created: String,
-    /// **Deprecated**: This property is deprecated and will be removed after the 1 July 2026. Use the `location` property instead.  Data Center of the Primary IP.
-    #[serde(rename = "datacenter")]
-    pub datacenter: Box<models::DataCenter>,
     /// List of reverse DNS records.
     #[serde(rename = "dns_ptr")]
     pub dns_ptr: Vec<models::DnsPtr>,
@@ -61,7 +58,6 @@ impl PrimaryIp {
         auto_delete: bool,
         blocked: bool,
         created: String,
-        datacenter: models::DataCenter,
         dns_ptr: Vec<models::DnsPtr>,
         id: i64,
         ip: String,
@@ -77,7 +73,6 @@ impl PrimaryIp {
             auto_delete,
             blocked,
             created,
-            datacenter: Box::new(datacenter),
             dns_ptr,
             id,
             ip,
